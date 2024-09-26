@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  anvil:
+    build:
+      dockerfile: Dockerfile.anvil
+    volumes:
+      - ./state:/state
+    environment:
+      ANVIL_STATE: "/state/anvil"
+      ANVIL_STATE_INTERVAL: 10
+    ports:
+      - "8545:8545"
+      
+  faucet:
+    build:
+      dockerfile: Dockerfile.faucet
+    working_dir: /app
+    volumes:
+      - ./faucet:/app
+    ports:
+      - "3000:3000"
+    command: bun run index.ts
+    depends_on:
+      - anvil
