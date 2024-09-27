@@ -1,4 +1,7 @@
-FROM oven/bun:1
-COPY . .
+FROM oven/bun:latest
+WORKDIR /app
+COPY faucet/package.json faucet/bun.lockb /app
 RUN bun install
-CMD ["bun", "faucet/index.ts"]
+COPY faucet/ /app
+RUN bun next build
+CMD ["bun", "next", "start"]

@@ -20,6 +20,5 @@ services:
       - ./faucet:/app
     ports:
       - "3000:3000"
-    command: bun run index.ts
     depends_on:
       - anvil
