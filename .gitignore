@@ -1,3 +1,6 @@
+data/sourcify/v1/*
+data/sourcify/v2/*
+data/anvil/*
 state
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 

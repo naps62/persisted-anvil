@@ -2,6 +2,6 @@ FROM oven/bun:latest
 WORKDIR /app
 COPY faucet/package.json faucet/bun.lockb /app
 RUN bun install
-COPY faucet/ /app
+COPY faucet /app
 RUN bun next build
 CMD ["bun", "next", "start"]

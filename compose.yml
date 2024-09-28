@@ -3,7 +3,7 @@ services:
     build:
       dockerfile: Dockerfile.anvil
     volumes:
-      - ./state:/state
+      - ./data/anvil:/state
     environment:
       ANVIL_STATE: "/state/anvil"
       ANVIL_STATE_INTERVAL: 10
@@ -26,7 +26,7 @@ services:
     ports:
       - "3001:80"
     volumes:
-      - ./otterscan/config.json:/usr/share/nginx/html/config.json
+      - ./config/otterscan/config.json:/usr/share/nginx/html/config.json
     environment:
       DISABLE_CONFIG_OVERWRITE: "1"
 
@@ -37,18 +37,10 @@ services:
       - "8080:8080"
 
   sourcify:
-    image: ghcr.io/ethereum/sourcify/server:latest
+    image: ghcr.io/ethereum/sourcify/server:staging
     ports:
       - "5555:5555"
     volumes:
       - ./data/sourcify:/data
-      # - ./sourcify/chains.json:/home/app/services/server/dist/sourcify-chains.json
-      - ./sourcify/local.js:/home/app/services/server/dist/config/local.js
-
-  sourcify-ui:
-    image: ghcr.io/ethereum/sourcify/ui:latest
-    ports:
-      - "3002:80"
-    environment:
-      REACT_APP_SERVER_URL: "http://localhost:5555"
-      REACT_APP_REPOSITORY_SERVER_URL: "http://localhost:5555"
+      - ./config/sourcify/chains.json:/home/app/services/server/dist/sourcify-chains.json
+      - ./config/sourcify/local.js:/home/app/services/server/dist/config/local.js
