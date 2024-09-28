@@ -18,8 +18,4 @@ if ! [ -z $ANVIL_STATE_INTERVAL ]; then
   args="$args --state-interval $ANVIL_STATE_INTERVAL"
 fi
 
-
-
-echo $args
-
 anvil $args

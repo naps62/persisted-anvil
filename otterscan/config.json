@@ -1,0 +1,19 @@
+{
+	"erigonURL": "",
+	"beaconAPI": "",
+	"assetsURLPrefix": "",
+	"experimental": "",
+	"chainInfo": {
+		"name": "Italic",
+		"faucets": "https://faucet.testnet.subvisual.co",
+		"nativeCurrency": {
+			"name": "Vitaliks",
+			"symbol": "vITALIC",
+			"decimals": 18
+		}
+	},
+	"sourcifySources": {
+		"ipfs": "http://localhost:5555/repository",
+		"central_server": "http://localhost:5555/repository"
+	}
+}
