@@ -8,7 +8,7 @@ services:
       ANVIL_STATE: "/state/anvil"
       ANVIL_STATE_INTERVAL: 10
       ANVIL_CHAIN_ID: 7566690 # sub -> hex -> decimal
-      ANVIL_AUTO_IMPERSONATE: true
+      ANVIL_AUTO_IMPERSONATE: "true"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rpc.entrypoints=web"
