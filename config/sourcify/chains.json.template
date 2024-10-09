@@ -2,7 +2,7 @@
   "7566690": {
     "name": "Anvil",
     "chain": "anvil",
-    "rpc": ["http://anvil:8545"],
+    "rpc": ["http://{{DOMAIN}}"],
     "faucets": [],
     "nativeCurrency": {
       "name": "vITALIC",
@@ -11,8 +11,8 @@
     },
     "infoURL": "https://book.getfoundry.sh",
     "shortName": "anvil",
-    "chainId": 7566690,
-    "networkId": 7566690,
+    "chainId": {{CHAIN_ID}},
+    "networkId": {{CHAIN_ID}},
     "slip44": 60,
     "explorers": [],
     "supported": true

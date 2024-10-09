@@ -12,7 +12,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rpc.entrypoints=web"
-      - "traefik.http.routers.rpc.rule=Host(`rpc.${DOMAIN}`)"
+      - "traefik.http.routers.rpc.rule=Host(`${DOMAIN}`)"
       - "traefik.http.services.rpc.loadbalancer.server.port=8545"
       
   faucet:
@@ -36,26 +36,6 @@ services:
       - ./config/otterscan/config.json:/usr/share/nginx/html/config.json
     environment:
       DISABLE_CONFIG_OVERWRITE: "1"
-      VITE_CONFIG_JSON: >
-        {
-          "erigonURL": "http://rpc.konishi.local",
-          "beaconAPI": "",
-          "assetsURLPrefix": "",
-          "experimental": "",
-          "chainInfo": {
-            "name": "Italic",
-            "faucets": "http://faucet.konishi.local",
-            "nativeCurrency": {
-              "name": "Subvisual",
-              "symbol": "SUBS",
-              "decimals": 18
-            }
-          },
-          "sourcifySources": {
-            "ipfs": "http://sourcify.konishi.local/repository",
-            "central_server": "http://sourcify.konishi.local/repository"
-          }
-        }
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.explorer.entrypoints=web"
@@ -70,7 +50,6 @@ services:
       - ./data/sourcify:/data
       - ./config/sourcify/chains.json:/home/app/services/server/dist/sourcify-chains.json
       - ./config/sourcify/local.js:/home/app/services/server/dist/config/local.js
-      - ./config/sourcify/chains.js:/home/app/services/server/dist/sourcify-chains.js
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sourcify.entrypoints=web"

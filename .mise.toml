@@ -1,4 +1,5 @@
 [env]
 DOMAIN = "konishi.local"
+CHAIN_ID = 7566690
 
 _.file = ".env"
