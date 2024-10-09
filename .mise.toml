@@ -1,0 +1,4 @@
+[env]
+DOMAIN = "konishi.local"
+
+_.file = ".env"

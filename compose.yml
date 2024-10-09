@@ -7,19 +7,19 @@ services:
     environment:
       ANVIL_STATE: "/state/anvil"
       ANVIL_STATE_INTERVAL: 10
-    ports:
-      - "8545:8545"
+      ANVIL_CHAIN_ID: 7566690 # sub -> hex -> decimal
+      ANVIL_AUTO_IMPERSONATE: true
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rpc.entrypoints=web"
-      - "traefik.http.routers.rpc.rule=Host(`rpc.konishi.local`)"
-      - "traefik.http.services.rpc.loadbalancer.server.port=3000"
+      - "traefik.http.routers.rpc.rule=Host(`rpc.${DOMAIN}`)"
+      - "traefik.http.services.rpc.loadbalancer.server.port=8545"
       
   faucet:
     build:
       dockerfile: Dockerfile.faucet
     working_dir: /app
-    command: ["bun", "next", "start", "-p", "80"]
+    command: ["bun", "next", "dev", "-p", "80"]
     volumes:
       - ./faucet:/app
     depends_on:
@@ -27,23 +27,39 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.faucet.entrypoints=web"
-      - "traefik.http.routers.faucet.rule=Host(`faucet.konishi.local`)"
-      - "traefik.http.services.faucet.loadbalancer.server.port=3000"
+      - "traefik.http.routers.faucet.rule=Host(`faucet.${DOMAIN}`)"
+      - "traefik.http.services.faucet.loadbalancer.server.port=80"
 
   otterscan:
     image: otterscan/otterscan:v2.6.1
-    ports:
-      - "3001:80"
-    expose:
-      - "3000"
     volumes:
       - ./config/otterscan/config.json:/usr/share/nginx/html/config.json
     environment:
       DISABLE_CONFIG_OVERWRITE: "1"
+      VITE_CONFIG_JSON: >
+        {
+          "erigonURL": "http://rpc.konishi.local",
+          "beaconAPI": "",
+          "assetsURLPrefix": "",
+          "experimental": "",
+          "chainInfo": {
+            "name": "Italic",
+            "faucets": "http://faucet.konishi.local",
+            "nativeCurrency": {
+              "name": "Subvisual",
+              "symbol": "SUBS",
+              "decimals": 18
+            }
+          },
+          "sourcifySources": {
+            "ipfs": "http://sourcify.konishi.local/repository",
+            "central_server": "http://sourcify.konishi.local/repository"
+          }
+        }
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.explorer.entrypoints=web"
-      - "traefik.http.routers.explorer.rule=Host(`explorer.konishi.local`)"
+      - "traefik.http.routers.explorer.rule=Host(`explorer.${DOMAIN}`)"
       - "traefik.http.services.explorer.loadbalancer.server.port=80"
 
   sourcify:
@@ -54,22 +70,23 @@ services:
       - ./data/sourcify:/data
       - ./config/sourcify/chains.json:/home/app/services/server/dist/sourcify-chains.json
       - ./config/sourcify/local.js:/home/app/services/server/dist/config/local.js
+      - ./config/sourcify/chains.js:/home/app/services/server/dist/sourcify-chains.js
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sourcify.entrypoints=web"
-      - "traefik.http.routers.sourcify.rule=Host(`sourcify.konishi.local`)"
+      - "traefik.http.routers.sourcify.rule=Host(`sourcify.${DOMAIN}`)"
       - "traefik.http.services.sourcify.loadbalancer.server.port=5555"
 
   traefik:
     image: "traefik:v3.1"
     command:
-      #- "--log.level=DEBUG"
+      # - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entryPoints.web.address=:80"
     ports:
-      - "8000:80"
+      - "80:80"
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"

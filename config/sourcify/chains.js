@@ -181,5 +181,5 @@ if (missingChains.length > 0) {
 		});
 	}
 }
-console.log(sourcifyChainsMap);
+console.log("here", sourcifyChainsMap);
 //# sourceMappingURL=sourcify-chains.js.map

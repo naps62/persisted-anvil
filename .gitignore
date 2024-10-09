@@ -1,3 +1,5 @@
+.env
+config/otterscan/config.json
 data/sourcify/v1/*
 data/sourcify/v2/*
 data/anvil/*

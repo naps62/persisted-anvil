@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -ue
+
+INPUT=config/otterscan/config.json.template
+OUTPUT=config/otterscan/config.json
+
+sed "s/{{DOMAIN}}/$DOMAIN/g" $INPUT > $OUTPUT

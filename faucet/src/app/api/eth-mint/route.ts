@@ -7,18 +7,26 @@ interface IBody {
 	amount?: string;
 }
 
+const ZeroAddress = getAddress("0x0000000000000000000000000000000000000000");
+
+console.log("here");
 export async function POST(req: Request) {
 	const data: IBody = await req.json();
 	const address = getAddress(data.address);
-	const amount = BigInt(data.amount || parseEther("1"));
+	const amount = parseEther(data.amount || "1");
+	const amountPlusGas = amount + parseEther("0.01");
 
-	console.log(amount);
-	const current = await rpc.getBalance({ address });
 	await rpc.request({
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		method: "anvil_setBalance" as any,
-		params: [address, toHex(amount + current)],
+		params: [ZeroAddress, toHex(amountPlusGas)],
 	});
 
-	return Response.json({});
+	const hash = await rpc.sendTransaction({
+		account: ZeroAddress,
+		to: address,
+		value: amount,
+	});
+
+	return Response.json({ hash });
 }

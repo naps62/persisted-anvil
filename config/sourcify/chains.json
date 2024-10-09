@@ -1,5 +1,5 @@
 {
-  "31337": {
+  "7566690": {
     "name": "Anvil",
     "chain": "anvil",
     "rpc": ["http://anvil:8545"],
@@ -11,8 +11,8 @@
     },
     "infoURL": "https://book.getfoundry.sh",
     "shortName": "anvil",
-    "chainId": 31337,
-    "networkId": 31337,
+    "chainId": 7566690,
+    "networkId": 7566690,
     "slip44": 60,
     "explorers": [],
     "supported": true

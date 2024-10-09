@@ -1,11 +1,11 @@
 {
-	"erigonURL": "http://konishi.local",
+	"erigonURL": "http://{{DOMAIN}}",
 	"beaconAPI": "",
 	"assetsURLPrefix": "",
 	"experimental": "",
 	"chainInfo": {
 		"name": "Italic",
-		"faucets": "http://faucet.konishi.local",
+		"faucets": "http://faucet.{{DOMAIN}}",
 		"nativeCurrency": {
 			"name": "Subvisual",
 			"symbol": "SUBS",
@@ -13,7 +13,7 @@
 		}
 	},
 	"sourcifySources": {
-		"ipfs": "http://sourcify.konishi.local/repository",
-		"central_server": "http://sourcify.konishi.local/repository"
+		"ipfs": "http://sourcify.{{DOMAIN}}/repository",
+		"central_server": "http://sourcify.{{DOMAIN}}/repository"
 	}
 }
