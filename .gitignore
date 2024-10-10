@@ -2,6 +2,7 @@
 config/otterscan/config.json
 config/sourcify/chains.json
 config/traefik/usersFile
+config/traefik/static.yml
 data/sourcify/v1/*
 data/sourcify/v2/*
 data/anvil/*
