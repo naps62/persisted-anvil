@@ -8,6 +8,7 @@ function do_file() {
 
   cat $INPUT |\
     sed "s/{{DOMAIN}}/$DOMAIN/g" |\
+    sed "s/{{BASIC_AUTH}}/$BASIC_AUTH/g" |\
     sed "s/{{CHAIN_ID}}/${CHAIN_ID}/" |\
     sed "s/{{ETH_NAME}}/${ETH_NAME}/" |\
     sed "s/{{ETH_SYMBOL}}/${ETH_SYMBOL}/" |\

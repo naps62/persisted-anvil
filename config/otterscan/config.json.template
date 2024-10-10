@@ -1,5 +1,5 @@
 {
-	"erigonURL": "https://{{DOMAIN}}",
+	"erigonURL": "https://{{BASIC_AUTH}}@{{DOMAIN}}",
 	"beaconAPI": "",
 	"assetsURLPrefix": "",
 	"experimental": "",
@@ -13,7 +13,7 @@
 		}
 	},
 	"sourcifySources": {
-		"ipfs": "https://sourcify.{{DOMAIN}}/repository",
-		"central_server": "https://sourcify.{{DOMAIN}}/repository"
+		"ipfs": "https://{{BASIC_AUTH}}:sourcify.{{DOMAIN}}/repository",
+		"central_server": "https://{{BASIC_AUTH}}:sourcify.{{DOMAIN}}/repository"
 	}
 }
