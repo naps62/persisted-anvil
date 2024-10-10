@@ -13,6 +13,7 @@ certificatesResolvers:
   resolver:
     acme:
       email: mpalhas@gmail.com
+      storage: /etc/traefik/acme/acme.json
       httpChallenge:
         entrypoint: web
 
