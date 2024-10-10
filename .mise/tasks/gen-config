@@ -17,4 +17,3 @@ function do_file() {
 
 do_file "config/otterscan/config.json"
 do_file "config/sourcify/chains.json"
-do_file "config/traefik/static.yml"
