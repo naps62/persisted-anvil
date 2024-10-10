@@ -18,12 +18,10 @@ services:
   faucet:
     build:
       dockerfile: Dockerfile.faucet
-    working_dir: /app
-    command: ["bun", "next", "dev", "-p", "80"]
-    volumes:
-      - ./faucet:/app
     depends_on:
       - anvil
+    environment:
+      PORT: 80
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.faucet.entrypoints=web"
