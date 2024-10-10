@@ -1,0 +1,22 @@
+# vim: set syntax=yaml:
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+providers:
+  docker:
+    exposedByDefault: false
+
+certificatesResolvers:
+  resolver:
+    acme:
+      email: mpalhas@gmail.com
+      storage: acme.json
+      httpChallenge:
+        entrypoint: web
+
+api:
+  dashboard: true
+  insecure: true
