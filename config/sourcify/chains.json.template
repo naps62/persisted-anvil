@@ -1,12 +1,12 @@
 {
-  "7566690": {
-    "name": "Anvil",
+  "{{CHAIN_ID}}": {
+    "name": "{{CHAIN_NAME}}",
     "chain": "anvil",
     "rpc": ["http://{{DOMAIN}}"],
     "faucets": [],
     "nativeCurrency": {
-      "name": "vITALIC",
-      "symbol": "vITALIC",
+      "name": "{{ETH_NAME}}",
+      "symbol": "{{ETH_SYMBOL}}",
       "decimals": 18
     },
     "infoURL": "https://book.getfoundry.sh",
