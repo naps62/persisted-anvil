@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mise run gen-config
+docker compose up -d
