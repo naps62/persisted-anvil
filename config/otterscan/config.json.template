@@ -1,5 +1,5 @@
 {
-	"erigonURL": "https://{{BASIC_AUTH}}@{{DOMAIN}}",
+	"erigonURL": "https://{{DOMAIN}}",
 	"beaconAPI": "",
 	"assetsURLPrefix": "",
 	"experimental": "",
