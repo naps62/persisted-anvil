@@ -14,8 +14,8 @@ services:
       - "traefik.http.routers.rpc.entrypoints=web"
       - "traefik.http.routers.rpc.middlewares=auth"
       - "traefik.http.routers.rpc.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.rpc.tls=true"
-      - "traefik.http.routers.rpc.tls.certresolver=resolver"
+      # - "traefik.http.routers.rpc.tls=true"
+      # - "traefik.http.routers.rpc.tls.certresolver=resolver"
       - "traefik.http.services.rpc.loadbalancer.server.port=8545"
       
   faucet:
@@ -30,8 +30,8 @@ services:
       - "traefik.http.routers.faucet.entrypoints=web"
       - "traefik.http.routers.faucet.middlewares=auth"
       - "traefik.http.routers.faucet.rule=Host(`faucet.${DOMAIN}`)"
-      - "traefik.http.routers.faucet.tls=true"
-      - "traefik.http.routers.faucet.tls.certresolver=resolver"
+      # - "traefik.http.routers.faucet.tls=true"
+      # - "traefik.http.routers.faucet.tls.certresolver=resolver"
       - "traefik.http.services.faucet.loadbalancer.server.port=80"
 
   otterscan:
@@ -45,8 +45,8 @@ services:
       - "traefik.http.routers.explorer.entrypoints=web"
       - "traefik.http.routers.explorer.rule=Host(`explorer.${DOMAIN}`)"
       - "traefik.http.routers.explorer.middlewares=auth"
-      - "traefik.http.routers.explorer.tls=true"
-      - "traefik.http.routers.explorer.tls.certresolver=resolver"
+      # - "traefik.http.routers.explorer.tls=true"
+      # - "traefik.http.routers.explorer.tls.certresolver=resolver"
       - "traefik.http.services.explorer.loadbalancer.server.port=80"
 
   sourcify:
@@ -59,8 +59,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.sourcify.entrypoints=web"
       - "traefik.http.routers.sourcify.rule=Host(`sourcify.${DOMAIN}`)"
-      - "traefik.http.routers.sourcify.tls=true"
-      - "traefik.http.routers.sourcify.tls.certresolver=resolver"
+      # - "traefik.http.routers.sourcify.tls=true"
+      # - "traefik.http.routers.sourcify.tls.certresolver=resolver"
       - "traefik.http.services.sourcify.loadbalancer.server.port=5555"
 
   traefik:
@@ -75,8 +75,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=web"
       - "traefik.http.routers.traefik.rule=Host(`traefik.${DOMAIN}`)"
-      - "traefik.http.routers.traefik.tls=true"
-      - "traefik.http.routers.traefik.tls.certresolver=resolver"
-      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.middlewares=auth"
+      # - "traefik.http.routers.traefik.tls=true"
+      # - "traefik.http.routers.traefik.tls.certresolver=resolver"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
       - "traefik.http.middlewares.auth.digestauth.usersFile=/etc/traefik/usersFile"
