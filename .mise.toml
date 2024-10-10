@@ -1,5 +1,8 @@
 [env]
 DOMAIN = "konishi.local"
 CHAIN_ID = 7566690
+CHAIN_NAME = "konishi"
+ETH_NAME = "Ethereum"
+ETH_SYMBOL = "ETH"
 
 _.file = ".env"

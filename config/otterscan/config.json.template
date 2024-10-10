@@ -4,11 +4,11 @@
 	"assetsURLPrefix": "",
 	"experimental": "",
 	"chainInfo": {
-		"name": "Italic",
+		"name": "{{CHAIN_NAME}}",
 		"faucets": "http://faucet.{{DOMAIN}}",
 		"nativeCurrency": {
-			"name": "Subvisual",
-			"symbol": "SUBS",
+			"name": "{{ETH_NAME}}",
+			"symbol": "{{ETH_SYMBOL}}",
 			"decimals": 18
 		}
 	},
