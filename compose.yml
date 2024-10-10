@@ -53,7 +53,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.sourcify.entrypoints=websecure"
       - "traefik.http.routers.sourcify.rule=Host(`sourcify.${DOMAIN}`)"
-      - "traefik.http.routers.sourcify.middlewares=auth"
+      #- "traefik.http.routers.sourcify.middlewares=auth"
       - "traefik.http.services.sourcify.loadbalancer.server.port=5555"
 
   traefik:
