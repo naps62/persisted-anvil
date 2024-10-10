@@ -1,11 +1,11 @@
 {
-	"erigonURL": "http://{{DOMAIN}}",
+	"erigonURL": "https://{{DOMAIN}}",
 	"beaconAPI": "",
 	"assetsURLPrefix": "",
 	"experimental": "",
 	"chainInfo": {
 		"name": "{{CHAIN_NAME}}",
-		"faucets": "http://faucet.{{DOMAIN}}",
+		"faucets": "https://faucet.{{DOMAIN}}",
 		"nativeCurrency": {
 			"name": "{{ETH_NAME}}",
 			"symbol": "{{ETH_SYMBOL}}",
@@ -13,7 +13,7 @@
 		}
 	},
 	"sourcifySources": {
-		"ipfs": "http://sourcify.{{DOMAIN}}/repository",
-		"central_server": "http://sourcify.{{DOMAIN}}/repository"
+		"ipfs": "https://sourcify.{{DOMAIN}}/repository",
+		"central_server": "https://sourcify.{{DOMAIN}}/repository"
 	}
 }
