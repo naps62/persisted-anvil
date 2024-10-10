@@ -13,7 +13,7 @@
 		}
 	},
 	"sourcifySources": {
-		"ipfs": "https://{{BASIC_AUTH}}@sourcify.{{DOMAIN}}/repository",
-		"central_server": "https://{{BASIC_AUTH}}@sourcify.{{DOMAIN}}/repository"
+		"ipfs": "https://sourcify.{{DOMAIN}}/repository",
+		"central_server": "https://sourcify.{{DOMAIN}}/repository"
 	}
 }
