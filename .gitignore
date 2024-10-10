@@ -6,6 +6,7 @@ config/traefik/static.yml
 data/sourcify/v1/*
 data/sourcify/v2/*
 data/anvil/*
+data/traefik/acme/acme.json
 state
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 
