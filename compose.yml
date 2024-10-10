@@ -85,4 +85,4 @@ services:
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.middlewares=auth"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
-      - "traefik.http.middlewares.auth.digestauth.usersFile=/etc/traefik/usersFile"
+      - "traefik.http.middlewares.auth.basicauth.usersFile=/etc/traefik/usersFile"
