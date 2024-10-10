@@ -2,7 +2,7 @@
   "{{CHAIN_ID}}": {
     "name": "{{CHAIN_NAME}}",
     "chain": "anvil",
-    "rpc": ["http://{{DOMAIN}}"],
+    "rpc": ["http://anvil:8545"],
     "faucets": [],
     "nativeCurrency": {
       "name": "{{ETH_NAME}}",
