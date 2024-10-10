@@ -13,9 +13,11 @@ certificatesResolvers:
   resolver:
     acme:
       email: mpalhas@gmail.com
-      storage: acme.json
       httpChallenge:
         entrypoint: web
 
 api:
   dashboard: true
+
+log:
+  level: DEBUG

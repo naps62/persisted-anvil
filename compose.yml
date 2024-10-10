@@ -71,6 +71,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./config/traefik/static.yml:/etc/traefik/traefik.yml"
       - "./config/traefik/usersFile:/etc/traefik/usersFile"
+      - "./data/traefik/acme:/etc/traefik/acme"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=web"
