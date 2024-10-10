@@ -13,7 +13,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.rpc.entrypoints=websecure"
       - "traefik.http.routers.rpc.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.rpc.middlewares=auth"
+      # - "traefik.http.routers.rpc.middlewares=auth"
       - "traefik.http.services.rpc.loadbalancer.server.port=8545"
       
   faucet:
