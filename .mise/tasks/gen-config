@@ -6,7 +6,12 @@ function do_file() {
   INPUT=$1.template
   OUTPUT=$1
 
-  cat $INPUT | sed "s/{{DOMAIN}}/$DOMAIN/g" | sed "s/{{CHAIN_ID}}/${CHAIN_ID}/" > $OUTPUT
+  cat $INPUT |\
+    sed "s/{{DOMAIN}}/$DOMAIN/g" |\
+    sed "s/{{CHAIN_ID}}/${CHAIN_ID}/" |\
+    sed "s/{{ETH_NAME}}/${ETH_NAME}/" |\
+    sed "s/{{ETH_SYMBOL}}/${ETH_SYMBOL}/" |\
+    sed "s/{{CHAIN_NAME}}/${CHAIN_NAME}/" > $OUTPUT
   echo "generating ${OUTPUT}"
 }
 
