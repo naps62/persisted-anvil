@@ -7,7 +7,7 @@ if ! [ -z $FORK_URL ]; then
 fi
 
 if ! [ -z $FORK_NUMBER ]; then
-  args="$args --fork-url $FORK_NUMBER"
+  args="$args --fork-block-number $FORK_NUMBER"
 fi
 
 if ! [ -z $ANVIL_STATE ]; then
