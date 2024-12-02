@@ -137,3 +137,7 @@ services:
       - "traefik.http.routers.traefik.middlewares=auth"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
       - "traefik.http.middlewares.auth.basicauth.usersFile=/etc/traefik/usersFile"
+
+volumes:
+  postgres:
+  ipfs:
